@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.recyclerview.widget.RecyclerView
+import java.time.LocalTime
 
 
 class RecyclerAdapter(
@@ -26,13 +26,15 @@ RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         init {
             itemView.setOnClickListener{ v: View ->
                 val position: Int = adapterPosition
-                Toast.makeText(itemView.context, "${position + 1}", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(itemView.context, "${position + 1}", Toast.LENGTH_SHORT).show()
+
 
             }
             itemView.setOnLongClickListener{
 
                 val position: Int = adapterPosition
-                Toast.makeText(itemView.context, "${position + 1}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(itemView.context, "Deleted", Toast.LENGTH_SHORT).show()
+
 
                 return@setOnLongClickListener true
             }
@@ -57,7 +59,41 @@ RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
         holder.itemStatus.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
             holder.itemTitle.text = isChecked.toString()
+
         })
+
+//        val sharedPreferences = getSharedPreferences("alarmPref", AppCompatActivity.MODE_PRIVATE)
+//        val editor = sharedPreferences.edit()
+//
+//        var setHours = HashSet<String>()
+//        var setMinutes = HashSet<String>()
+//        var setNames = HashSet<String>()
+//
+//
+//        val datas = sharedPreferences.getStringSet("hours", setHours)
+//        val datasMinutes = sharedPreferences.getStringSet("minutes", setMinutes)
+//        val datasNames = sharedPreferences.getStringSet("names", setNames)
+//
+//        datas!!.add(picker.hour.toString())
+//        datasMinutes!!.add(picker.minute.toString())
+//        datasNames!!.add(alarmName.text.toString())
+//
+//        for (name in datas!!){
+//            println("hours:" + name)
+//        }
+//
+//        for (name in datasMinutes!!){
+//            println("minutes:" + name)
+//        }
+//        for (name in datasNames!!){
+//            println("name:" + name)
+//        }
+//
+//
+//        editor.putStringSet("hours", datas);
+//        editor.putStringSet("minutes", datasMinutes);
+//        editor.putStringSet("names", datasNames);
+//        editor.commit()
 
     }
 
